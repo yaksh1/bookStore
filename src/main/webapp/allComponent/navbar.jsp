@@ -1,7 +1,8 @@
+<%@page import="com.bookecommerce.entity.UserDetails"%>
 <div class="container-fluid p-3">
 	<div class="row">
-		<div class="col-md-7 text-success">
-			<h3><i class="fa-solid fa-book-open"></i> E-Books</h3>
+		<div class="col-md-7 text-logo">
+			<h3 class="text-logo"><i class="fa-solid fa-book-open"></i> E-Books</h3>
 		</div>
 		<div class="col-md-2">
 			<form class="d-flex" role="search">
@@ -11,8 +12,23 @@
 			</form>
 		</div>
 		<div class="col-md-3" style="padding-left: 200px;">
-			<a href="" class="btn btn-success"><i class="fa-solid fa-user"></i> Login</a> <a href=""
+			
+			<%UserDetails user = (UserDetails) session.getAttribute("userD"); 
+			if(user==null){%>
+				<a href="login.jsp" class="btn btn-success"><i class="fa-solid fa-user"></i> Login</a>
+				<a href="register.jsp"
 				class="btn btn-primary"><i class="fa-regular fa-user"></i> Register</a>
+				
+				<%
+			}else{%>
+				<a href="profile.jsp" class="btn btn-custom" 
+				type="submit"><i class="fa-solid fa-user"></i> Profile</a> <a href="logout"
+				class="btn" style="margin-left: 8px;background-color: #ff5271;color: white;" type="submit"><i class="fa-regular fa-user"></i> Logout</a><%
+			}
+			%>
+			
+			
+			
 		</div>
 	</div>
 </div>
