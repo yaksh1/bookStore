@@ -27,10 +27,9 @@ public class HelperFunctions {
 	}
 	
 	public static void checkNull(String var,String status,String redirect,RequestDispatcher dispatcher,HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
-		if(var==null||var.equals(" ")) {
+		if(var==null||var.equals(" ")||var.equals("")) {
 			request.setAttribute("status",status);
-			dispatcher = request.getRequestDispatcher(redirect);
-			dispatcher.forward(request, response);
+			response.sendRedirect(redirect);
 		
 		}
 	}

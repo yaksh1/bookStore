@@ -6,6 +6,9 @@ public class UserDetails {
 	private String uemail;
 	private String upassword;
 	private String ucontact;
+	public UserDetails() {
+		
+	}
 	public UserDetails(String uname,String uemail,String upassword,String ucontact){
 		this.uname=uname;
 		this.uemail=uemail;

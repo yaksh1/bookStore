@@ -41,6 +41,7 @@ public class LoginServlet extends HttpServlet {
 		HelperFunctions.checkNull(uemail, "invalidEmail", "login.jsp", null, request, response);
 		HelperFunctions.checkNull(upassword, "emptyPassword", "login.jsp", null, request, response);
 		
+		
 		//session
 		HttpSession session = request.getSession();
 		//dispatcher
@@ -52,16 +53,23 @@ public class LoginServlet extends HttpServlet {
 			con = DBconnect.connect();
 			UserDAO dao = new UserDAO(con);
 			UserDetails validUser = dao.validateUser(uemail, upassword);
-			
-			if(validUser!=null) {
+			//check if admin
+			if("admin@gmail.com".equals(uemail)&&"admin".equals(upassword)) {
+				UserDetails user = new UserDetails();
+				session.setAttribute("userD", user);
+				response.sendRedirect("admin/home.jsp");
+			}
+			else if(validUser!=null) {
 				session.setAttribute("name", validUser.getUname());
 				session.setAttribute("userD", validUser);
 				dispatcher = request.getRequestDispatcher("index.jsp");
+				dispatcher.forward(request, response);
 			}else {
 				request.setAttribute("status", "failed");
 				dispatcher = request.getRequestDispatcher("login.jsp");
+				dispatcher.forward(request, response);
 			}
-			dispatcher.forward(request, response);
+			
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

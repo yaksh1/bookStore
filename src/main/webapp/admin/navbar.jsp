@@ -47,14 +47,8 @@
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item"><a class="nav-link active"
-					aria-current="page" href="index.jsp"><i class="fa-solid fa-house"></i> Home</a></li>
-				<li class="nav-item "><a class="nav-link active" href="#"><i class="fa-solid fa-book"></i> Recent
-						Books</a></li>
-				<li class="nav-item "><a class="nav-link active" href="#"><i class="fa-solid fa-book"></i> New
-						Books</a></li>
-
-				<li class="nav-item active"><a class="nav-link active" href="#"><i class="fa-solid fa-book"></i> Old
-						Books</a></li>
+					aria-current="page" href="home.jsp"><i class="fa-solid fa-house"></i> Home</a></li>
+				
 			</ul>
 			<form class="d-flex" role="search">
 				<button class="btn btn-light m-2" type="submit"><i class="fa-solid fa-gear"></i> Setting</button>
